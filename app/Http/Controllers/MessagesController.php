@@ -43,7 +43,7 @@ class MessagesController extends Controller
         return redirect('/');
     }
 
-    // getでmessages/（任意のid）にアクセスされた場合の「取得表示処理」
+    // getでmessages/idにアクセスされた場合の「取得表示処理」
     public function show($id)
     {
         // idの値でメッセージを検索して取得
@@ -55,7 +55,7 @@ class MessagesController extends Controller
         ]);
     }
 
-    // getでmessages/（任意のid）/editにアクセスされた場合の「更新画面表示処理」
+    // getでmessages/id/editにアクセスされた場合の「更新画面表示処理」
     public function edit($id)
     {
         // idの値でメッセージを検索して取得

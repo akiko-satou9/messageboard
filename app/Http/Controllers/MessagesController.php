@@ -15,9 +15,7 @@ class MessagesController extends Controller
         $messages = Message::all();
         
         // メッセージ一覧ビューでそれを表示
-        return view('messages.index', [
-            'messages' => $messages,
-            ]);
+        return view('messages.index', [ 'messages' => $messages, ]);
     }
 
     // getでmessages/createにアクセスされた場合の「新規登録画面表示処理」

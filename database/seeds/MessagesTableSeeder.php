@@ -16,6 +16,7 @@ class MessagesTableSeeder extends Seeder
                 'title' => 'test title ' . $i,
                 'content' => 'test content ' . $i
             ]);
+        
         }
     }
 }

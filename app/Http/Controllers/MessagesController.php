@@ -11,8 +11,8 @@ class MessagesController extends Controller
     // getでmessages/にアクセスされた場合の「一覧表示処理」
     public function index()
     {
-        // メッセージ一覧を取得
-        $messages = Message::paginate(25);
+        // メッセージ一覧をidの降順で取得
+        $messages = Message::orderBy('id', 'desc')->paginate(25);
         
         // メッセージ一覧ビューでそれを表示
         return view('messages.index', [ 'messages' => $messages, ]);
@@ -53,9 +53,7 @@ class MessagesController extends Controller
         $message = Message::findOrFail($id);
         
         // メッセージ詳細ビューでそれを表示
-        return view('messages.show', [
-            'message' => $message,
-        ]);
+        return view('messages.show', [ 'message' => $message, ]);
     }
 
     // getでmessages/id/editにアクセスされた場合の「更新画面表示処理」
@@ -65,9 +63,7 @@ class MessagesController extends Controller
         $message = Message::findOrFail($id);
         
         // メッセージ編集ビューでそれを表示
-        return view('messages.edit', [
-            'message' => $message,
-        ]);
+        return view('messages.edit', [ 'message' => $message, ]);
     }
 
     // putまたはpatchでmessages/（任意のid）にアクセスされた場合の「更新処理」
@@ -81,6 +77,7 @@ class MessagesController extends Controller
         
         // idの値でメッセージを検索して取得
         $message = Message::findOrFail($id);
+        
         // メッセージを更新
         $message->title = $request->title;    // 追加
         $message->content = $request->content;

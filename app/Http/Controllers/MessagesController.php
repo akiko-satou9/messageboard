@@ -77,7 +77,6 @@ class MessagesController extends Controller
         
         // idの値でメッセージを検索して取得
         $message = Message::findOrFail($id);
-        
         // メッセージを更新
         $message->title = $request->title;    // 追加
         $message->content = $request->content;
